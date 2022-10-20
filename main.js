@@ -1,24 +1,28 @@
 // richiesta età e kilometri da percorrere
-let age = Number (prompt('Please insert your age:'));
+const age = Number (prompt('Please insert your age:'));
 console.log (age)
 
-let Km = Number (prompt('Please insert the Km of your travel:'));
+const Km = Number (prompt('Please insert the Km of your travel:'));
 console.log (Km)
 
-let price = (Km * 0.21);
+const price = (Km * 0.21);
 console.log (price)
 
 let realPrice;
 let fixedNum;
 if (age < 18) {
     realPrice = (price - (price * 0.2));
-    fixedNum = Math.round (realPrice*100)/100;
-    console.log (fixedNum)
+    fixedNum = realPrice.toFixed(2);
+    console.log (fixedNum);
+    document.getElementById ('realPrice').innerHTML = `${fixedNum} $`;
 } else if (age >= 65){
     realPrice = (price - (price * 0.4));
-    fixedNum = Math.round (realPrice*100)/100;
-    console.log (fixedNum)
+    fixedNum = realPrice.toFixed(2);
+    console.log (fixedNum);
+    document.getElementById ('realPrice').innerHTML = `${fixedNum} $`;
 } 
 else {
-    console.log (price)
+    const fixedPrice = price.toFixed(2);
+    console.log (fixedPrice);
+    document.getElementById ('realPrice').innerHTML = `${fixedPrice} $`; 
 }
